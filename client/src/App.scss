@@ -1,6 +1,12 @@
 $primaryColor: #4F518C;
 $hoverPrimary: #907AD6;
 
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 body{
-    margin: 2rem;
+    margin:2rem 4rem;
 }

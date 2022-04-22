@@ -1,61 +1,85 @@
 @use "../../App";
 
-.form {
-  button {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-
-    background-color: App.$primaryColor;
-    padding: 0.8em;
-    border: none;
-    color: white;
-    border-radius: 100%;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    cursor: pointer;
-
-    &:hover {
-      background-color: App.$hoverPrimary;
-    }
-
-    .plus_icon {
-      width: 30px;
-      height: 30px;
-    }
-  }
-}
-
 .images_container {
   margin-top: 2rem;
-  display: flex;
 
-  div {
-    display: inline-block;
+  .div_title {
+    display: flex;
+    align-items: baseline;
     position: relative;
-    padding: .2rem;
 
-    img{
-        height: 100px;
-        width: 200px;
-        object-fit: cover;
-        border-radius: .5rem;
+    p {
+      font-size: 1.2rem;
+      font-weight: bold;
+    //   margin-right: auto;
     }
 
     button {
       position: absolute;
-      top: 0.5em;
-      right: 0.5em;
-      border-radius: 100%;
+      bottom: -2rem;
+      right: 1rem;
+
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+
+      background-color: App.$primaryColor;
+      padding: 0.8em;
       border: none;
-      padding: 0.5em;
-      background-color: black;
-      font-weight: bold;
+      color: white;
+      border-radius: 100%;
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
       cursor: pointer;
 
-      .x_icon {
-        color: white;
-        width: 15px;
-        height: 15px;
+      &:hover {
+        background-color: App.$hoverPrimary;
+      }
+
+      .plus_icon {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  .card_container {
+    display: flex;
+    margin: 0.5rem 0rem;
+    padding: 1.5rem 0.5rem;
+    border: 1px solid black;
+    min-height: 200px;
+
+    .image_card {
+      display: inline-block;
+      position: relative;
+      padding: 0 0.4rem;
+
+      img {
+        height: 120px;
+        width: 220px;
+        object-fit: cover;
+        border-radius: 0.5rem;
+      }
+
+      button {
+        position: absolute;
+        top: 0.5em;
+        right: 1em;
+        border-radius: 100%;
+        border: none;
+        padding: 0.7em;
+        background-color: black;
+        font-weight: bold;
+        cursor: pointer;
+
+        .x_icon {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
+          width: 15px;
+          height: 15px;
+        }
       }
     }
   }

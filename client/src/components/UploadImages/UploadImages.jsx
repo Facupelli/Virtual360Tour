@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { PlusIcon, XIcon } from '@heroicons/react/solid'
+import { PlusIcon, XIcon } from "@heroicons/react/solid";
 import s from "./UploadImages.module.scss";
 
 export const UploadTour = ({ files, setFiles, create, setCreate }) => {
@@ -72,27 +72,32 @@ export const UploadTour = ({ files, setFiles, create, setCreate }) => {
           onChange={(e) => loadImg(e)}
           ref={fileInput}
         />
-        <button
-          onClick={(e) => {
-            e.preventDefault()
-            fileInput.current.click();
-          }}
-        >
-          {/* Elegir Archivos */}
-          <PlusIcon className={s.plus_icon}/>
-        </button>
       </form>
       <div className={s.images_container}>
-        {files.length > 0 &&
-          files.map((file, i) => (
-            <div key={i}>
-              <img
-                src={file.img}
-                alt={file.name}
-              />
-              <button onClick={() => handleDeleteImg(file.name)}><XIcon className={s.x_icon} /></button>
-            </div>
-          ))}
+        <div className={s.div_title}>
+          <p>Fotos 360</p>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              fileInput.current.click();
+            }}
+          >
+            {/* Elegir Archivos */}
+            <PlusIcon className={s.plus_icon} />
+          </button>
+        </div>
+        <div className={s.card_container}>
+          {files.length > 0 &&
+            files.map((file, i) => (
+              <div key={i} className={s.image_card}>
+                <img src={file.img} alt={file.name} />
+                <p>{file.name.split(".")[0]}</p>
+                <button onClick={() => handleDeleteImg(file.name)}>
+                  <XIcon className={s.x_icon} />
+                </button>
+              </div>
+            ))}
+        </div>
         {filesLoading && <div>Loading...</div>}
       </div>
       <div>
