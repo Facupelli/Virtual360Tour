@@ -14,8 +14,8 @@ export const Home = ({ files, setFiles }) => {
 
   return (
     <div>
-      <h1>PANELLUM REACT</h1>
-      {viewTour && !create && <PanellumReact scene={scene} />}
+      <h1>VIRTUAL 360 TOUR</h1>
+      {viewTour && !create && <PanellumReact scene={scene} setCreate={setCreate} setViewTour={setViewTour} />}
 
       {!viewTour && !create && (
         <UploadTour

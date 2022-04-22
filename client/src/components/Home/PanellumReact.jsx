@@ -2,7 +2,7 @@ import React from "react";
 import { Pannellum } from "pannellum-react";
 import scenesArray from "../../utils/scenesArray";
 
-export default function PanellumReact({scene}) {
+export default function PanellumReact({scene, setCreate, setViewTour}) {
   const [currentScene, setCurrentScene] = React.useState(0);
   const [yaw, setYaw] = React.useState(0);
   const [pitch, setPitch] = React.useState(0);
@@ -23,8 +23,14 @@ export default function PanellumReact({scene}) {
     hotSpotDiv.appendChild(image);
   };
 
+  const handleCreateTour = () => {
+    setViewTour(false)
+    setCreate(false)
+  }
+
   return (  
     <>
+      <div><button onClick={handleCreateTour}>Create Tour</button></div>
       <div> Pitch: {pitch} </div>
       <div> Yaw: {yaw} </div>
       <Pannellum
