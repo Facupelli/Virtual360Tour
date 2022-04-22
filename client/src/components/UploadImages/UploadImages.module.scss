@@ -1,5 +1,87 @@
 @use "../../App";
 
+.form {
+  display: flex;
+  margin: 1em 0;
+
+  div {
+    input {
+      padding: 1rem 1rem 0.5rem 0rem;
+      border: none;
+      border-bottom: 1px solid gray;
+      font-size: 1.1rem;
+
+      &::placeholder {
+        font-size: 1.1rem;
+      }
+
+      &:focus {
+        outline: none;
+        border-bottom: 2px solid gray;
+      }
+    }
+  }
+
+  .portada {
+    margin-left: 10rem;
+
+    label {
+      font-weight: bold;
+    }
+
+    .portada_hover {
+      border: none;
+
+      button {
+        display: none;
+      }
+
+      &:hover {
+        button {
+          display: block;
+        }
+
+        img {
+          filter: contrast(50%);
+        }
+      }
+    }
+
+    div {
+      position: relative;
+      margin: 0.4rem 0 0 0;
+      height: 200px;
+      width: 200px;
+      border: black 1px solid;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        height: 200px;
+        width: 200px;
+      }
+
+      button {
+        position: absolute;
+        padding: 0.6rem;
+        background-color: App.$primaryColor;
+        border: none;
+        border-radius: 0.2rem;
+        color: white;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: App.$hoverPrimary;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}
+
 .images_container {
   margin-top: 2rem;
 
@@ -11,7 +93,7 @@
     p {
       font-size: 1.2rem;
       font-weight: bold;
-    //   margin-right: auto;
+      //   margin-right: auto;
     }
 
     button {

@@ -7,8 +7,11 @@ export const Home = ({ files, setFiles }) => {
   const [viewTour, setViewTour] = useState(false);
   const [sceneName, setSceneName] = useState("PRUEBA1");
   const [scene, setScene] = useState([]);
+  const [portadaImg, setPortadaImg] = useState()
 
   console.log("SCENE", scene);
+  console.log("PORTADA", portadaImg);
+
 
   const [create, setCreate] = useState(false);
 
@@ -31,6 +34,8 @@ export const Home = ({ files, setFiles }) => {
           setFiles={setFiles}
           create={create}
           setCreate={setCreate}
+          portadaImg={portadaImg}
+          setPortadaImg={setPortadaImg}
         />
       )}
       {create && (

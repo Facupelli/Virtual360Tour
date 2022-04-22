@@ -1,47 +1,30 @@
 import React, { useRef, useState } from "react";
 import { PlusIcon, XIcon } from "@heroicons/react/solid";
 import s from "./UploadImages.module.scss";
+import { cloudinaryFunc } from "../../utils/cloudinary";
 
-export const UploadTour = ({ files, setFiles, create, setCreate }) => {
+export const UploadTour = ({
+  files,
+  setFiles,
+  create,
+  setCreate,
+  portadaImg,
+  setPortadaImg,
+}) => {
   // const [files, setFiles] = useState([]);
 
   console.log("FILES STATE UPLOAD", files, "length", files.length > 0);
   const [fileSize, setFileSize] = useState(true);
   const [filesLoading, setFilesLoading] = useState(false);
 
+  const loadPortadaImg = async (e) => {
+    const portadaUrl = await cloudinaryFunc(e.target.files[0]);
+    setPortadaImg(portadaUrl);
+  };
+
   const loadImg = async (e) => {
     setFilesLoading(true);
     const filesLoaded = Object.entries(e.target.files);
-
-    const cloudinaryFunc = async (file) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-
-      const formData = new FormData();
-      formData.append("file", file);
-      // replace this with your upload preset name
-      formData.append("upload_preset", "hn1tlyfq");
-      const options = {
-        method: "POST",
-        body: formData,
-      };
-
-      try {
-        const res = await fetch(
-          "https://api.cloudinary.com/v1_1/dzjz8pe0y/image/upload",
-          options
-        );
-        const res_1 = await res.json();
-        return {
-          name: file.name,
-          size: file.size,
-          type: file.type,
-          img: res_1.secure_url,
-        };
-      } catch (err) {
-        return console.log(err);
-      }
-    };
 
     const newObj = await Promise.all(
       filesLoaded.map((file) => cloudinaryFunc(file[1]))
@@ -60,6 +43,7 @@ export const UploadTour = ({ files, setFiles, create, setCreate }) => {
   };
 
   const fileInput = useRef();
+  const portadaInput = useRef();
 
   return (
     <div>
@@ -72,6 +56,29 @@ export const UploadTour = ({ files, setFiles, create, setCreate }) => {
           onChange={(e) => loadImg(e)}
           ref={fileInput}
         />
+        <div>
+          <input type="text" placeholder="Tour Name" />
+        </div>
+        <div className={s.portada}>
+          <label>Foto Portada</label>
+          <div className={portadaImg ? s.portada_hover : ''}>
+            <input
+              style={{ display: "none" }}
+              type="file"
+              ref={portadaInput}
+              onChange={(e) => loadPortadaImg(e)}
+            />
+            {portadaImg && <img src={portadaImg.img} alt={portadaImg.name} />}
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                portadaInput.current.click();
+              }}
+            >
+              Click Aqui
+            </button>
+          </div>
+        </div>
       </form>
       <div className={s.images_container}>
         <div className={s.div_title}>
