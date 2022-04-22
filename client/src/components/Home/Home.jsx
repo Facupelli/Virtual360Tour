@@ -5,17 +5,25 @@ import PanellumReact from "./PanellumReact";
 
 export const Home = ({ files, setFiles }) => {
   const [viewTour, setViewTour] = useState(false);
-  const [sceneName, setSceneName] = useState('PRUEBA1');
+  const [sceneName, setSceneName] = useState("PRUEBA1");
   const [scene, setScene] = useState([]);
 
-  console.log('SCENE', scene)
+  console.log("SCENE", scene);
 
   const [create, setCreate] = useState(false);
 
   return (
     <div>
       <h1>VIRTUAL 360 TOUR</h1>
-      {viewTour && !create && <PanellumReact scene={scene} setCreate={setCreate} setViewTour={setViewTour} />}
+      {viewTour && !create && (
+        <PanellumReact
+          scene={scene}
+          setScene={setScene}
+          setFiles={setFiles}
+          setCreate={setCreate}
+          setViewTour={setViewTour}
+        />
+      )}
 
       {!viewTour && !create && (
         <UploadTour

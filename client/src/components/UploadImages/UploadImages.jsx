@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 export const UploadTour = ({files, setFiles, create, setCreate}) => {
-  const navigate = useNavigate();
   // const [files, setFiles] = useState([]);
 
   console.log("FILES STATE UPLOAD", files, "length", files.length > 0);
