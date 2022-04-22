@@ -1,0 +1,62 @@
+@use "../../App";
+
+.form {
+  button {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+
+    background-color: App.$primaryColor;
+    padding: 0.8em;
+    border: none;
+    color: white;
+    border-radius: 100%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: App.$hoverPrimary;
+    }
+
+    .plus_icon {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.images_container {
+  margin-top: 2rem;
+  display: flex;
+
+  div {
+    display: inline-block;
+    position: relative;
+    padding: .2rem;
+
+    img{
+        height: 100px;
+        width: 200px;
+        object-fit: cover;
+        border-radius: .5rem;
+    }
+
+    button {
+      position: absolute;
+      top: 0.5em;
+      right: 0.5em;
+      border-radius: 100%;
+      border: none;
+      padding: 0.5em;
+      background-color: black;
+      font-weight: bold;
+      cursor: pointer;
+
+      .x_icon {
+        color: white;
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+}

@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import { PlusIcon, XIcon } from '@heroicons/react/solid'
+import s from "./UploadImages.module.scss";
 
-export const UploadTour = ({files, setFiles, create, setCreate}) => {
+export const UploadTour = ({ files, setFiles, create, setCreate }) => {
   // const [files, setFiles] = useState([]);
 
   console.log("FILES STATE UPLOAD", files, "length", files.length > 0);
@@ -54,25 +56,41 @@ export const UploadTour = ({files, setFiles, create, setCreate}) => {
   };
 
   const handleClickCreate = () => {
-      setCreate(true);
+    setCreate(true);
   };
+
+  const fileInput = useRef();
 
   return (
     <div>
       <h2>Create Tour</h2>
-      <form>
-        <input type="file" multiple onChange={(e) => loadImg(e)} />
+      <form className={s.form}>
+        <input
+          style={{ display: "none" }}
+          type="file"
+          multiple
+          onChange={(e) => loadImg(e)}
+          ref={fileInput}
+        />
+        <button
+          onClick={(e) => {
+            e.preventDefault()
+            fileInput.current.click();
+          }}
+        >
+          {/* Elegir Archivos */}
+          <PlusIcon className={s.plus_icon}/>
+        </button>
       </form>
-      <div>
+      <div className={s.images_container}>
         {files.length > 0 &&
           files.map((file, i) => (
             <div key={i}>
-              <button onClick={() => handleDeleteImg(file.name)}>X</button>
               <img
                 src={file.img}
                 alt={file.name}
-                style={{ height: "150px", width: "300px" }}
               />
+              <button onClick={() => handleDeleteImg(file.name)}><XIcon className={s.x_icon} /></button>
             </div>
           ))}
         {filesLoading && <div>Loading...</div>}
