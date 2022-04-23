@@ -40,8 +40,8 @@ export default function PanellumReact({scene, setScene, setCreate, setViewTour, 
         width="80%"
         height="500px"
         image={scene[currentScene].scenePanoImg + "?resize=800%2C600"}
-        pitch={10}
-        yaw={180}
+        pitch={scene[currentScene].initPitch}
+        yaw={scene[currentScene].initYaw}
         hfov={110}
         autoLoad
         showZoomCtrl={false}

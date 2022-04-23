@@ -39,6 +39,8 @@ export const LinkPhotos = ({
         sceneName,
         scenePanoImg: img.img,
         hotSpotsArr: [],
+        initYaw: 10,
+        initPitch: 10,
       };
     });
     setScene(sceneFiles);
@@ -57,6 +59,15 @@ export const LinkPhotos = ({
   const handleSelectImg = () => {
     setSelectImg(true);
   };
+
+  const handleSetPov = () => {
+    const newScene = [...scene];
+
+    newScene[currentImg].initYaw = yaw;
+    newScene[currentImg].initPitch = pitch;
+
+    setScene(newScene)
+  }
 
   const handleAddSpot = (imgName) => {
     const newScene = [...scene];
@@ -87,6 +98,11 @@ export const LinkPhotos = ({
     setViewTour(true);
   };
 
+
+  // panImage.current.getViewer().setPitch(-9.506376157760927)
+  // panImage.current.getViewer().setYaw(-23.63675383955293)
+
+
   return (
     <div>
       <p className={s.title}>Link Photos</p>
@@ -99,8 +115,8 @@ export const LinkPhotos = ({
                 width="100%"
                 height="350px"
                 image={scene[currentImg].scenePanoImg + "?resize=800%2C600"}
-                pitch={10}
-                yaw={180}
+                pitch={scene[currentImg].initPitch}
+                yaw={scene[currentImg].initYaw}
                 hfov={110}
                 autoLoad
                 showZoomCtrl={false}
@@ -145,8 +161,9 @@ export const LinkPhotos = ({
                   ))}
               </select>
               <div className={s.link_photo}>
-                <div>
+                <div className={s.btns_container}>
                   <button onClick={handleSelectImg}>Crear Enlace</button>
+                  <button onClick={handleSetPov}>Set POV</button>
                 </div>
                 {selectImg && files.length > 0 && (
                   <div className={s.choose_photo}>

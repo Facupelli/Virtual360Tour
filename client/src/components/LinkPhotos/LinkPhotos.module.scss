@@ -33,9 +33,15 @@
 }
 
 .link_photo {
-  button {
-    @include mainBtn;
+  .btns_container {
+    display: flex;
+    gap: 1rem;
+
+    button {
+      @include mainBtn;
+    }
   }
+  
 
   .choose_photo {
     width: 50%;
