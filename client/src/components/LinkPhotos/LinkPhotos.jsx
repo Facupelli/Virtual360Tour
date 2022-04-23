@@ -72,6 +72,11 @@ export const LinkPhotos = ({
     setSelectImg(false);
   };
 
+  const handleOnChange = (e) => {
+    const index = scene.map((img) => img.name).indexOf(e.target.value);
+    setCurrentImg(index);
+  };
+
   const handleDone = () => {
     setCreate(false);
     setViewTour(true);
@@ -121,16 +126,19 @@ export const LinkPhotos = ({
               </Pannellum>
             </div>
 
-            <div>
-              {files.length > 0 &&
-                files.map((file) => (
-                  <p
-                    key={file.name}
-                    onClick={() => handleClickPhoto(file.img, file.name)}
-                  >
-                    {file.name}
-                  </p>
-                ))}
+            <div className={s.select_image}>
+              <select onChange={handleOnChange}>
+                {files.length > 0 &&
+                  files.map((file) => (
+                    <option
+                      key={file.name}
+                      value={file.name}
+                      onClick={() => handleClickPhoto(file.img, file.name)}
+                    >
+                      {file.name}
+                    </option>
+                  ))}
+              </select>
               <div>
                 {pitch && <p>Pitch: {pitch}</p>}
                 {yaw && <p>Yaw: {yaw}</p>}
