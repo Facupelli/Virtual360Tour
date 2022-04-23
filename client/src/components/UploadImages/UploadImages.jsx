@@ -47,7 +47,7 @@ export const UploadTour = ({
 
   return (
     <div>
-      <h2>Create Tour</h2>
+      <p className={s.title}>Create Tour</p>
       <form className={s.form}>
         <input
           style={{ display: "none" }}
@@ -107,7 +107,7 @@ export const UploadTour = ({
         </div>
         {filesLoading && <div>Loading...</div>}
       </div>
-      <div>
+      <div className={s.create_btn_container}>
         <button disabled={!files.length > 0} onClick={handleClickCreate}>
           Crear Tour
         </button>

@@ -1,5 +1,11 @@
 @use "../../App";
 
+.title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 1rem 0 0 0;
+}
+
 .form {
   display: flex;
   margin: 1em 0;
@@ -163,6 +169,26 @@
           height: 15px;
         }
       }
+    }
+  }
+}
+
+.create_btn_container {
+  display: flex;
+  justify-content: end;
+
+  button {
+    margin: 1rem 0 0 0;
+
+    background-color: App.$primaryColor;
+    padding: 0.8em;
+    border: none;
+    color: white;
+    border-radius: 0.2rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: App.$hoverPrimary;
     }
   }
 }
