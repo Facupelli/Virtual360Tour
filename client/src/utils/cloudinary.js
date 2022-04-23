@@ -1,3 +1,5 @@
+import { keys } from "./apiKeys";
+
 export const cloudinaryFunc = async (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
@@ -5,7 +7,7 @@ export const cloudinaryFunc = async (file) => {
     const formData = new FormData();
     formData.append("file", file);
     // replace this with your upload preset name
-    formData.append("upload_preset", "hn1tlyfq");
+    formData.append("upload_preset", keys.preset);
     const options = {
       method: "POST",
       body: formData,
@@ -13,7 +15,7 @@ export const cloudinaryFunc = async (file) => {
 
     try {
       const res = await fetch(
-        "https://api.cloudinary.com/v1_1/dzjz8pe0y/image/upload",
+        `https://api.cloudinary.com/v1_1/${keys.cloud}/image/upload`,
         options
       );
       const res_1 = await res.json();

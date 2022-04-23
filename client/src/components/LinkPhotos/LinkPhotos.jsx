@@ -152,13 +152,21 @@ export const LinkPhotos = ({
                 <button onClick={handleSelectImg}>Crear Enlace</button>
               </div>
               <div>
-                {selectImg &&
-                  files.length > 0 &&
-                  files.map((file) => (
-                    <p key={file.name} onClick={() => handleAddSpot(file.name)}>
-                      {file.name}
-                    </p>
-                  ))}
+                {selectImg && files.length > 0 && (
+                  <>
+                    <p>Elige una foto</p>
+                    <div>
+                      {files.map((file) => (
+                        <p
+                          key={file.name}
+                          onClick={() => handleAddSpot(file.name)}
+                        >
+                          {file.name}
+                        </p>
+                      ))}
+                    </div>
+                  </>
+                )}
               </div>
             </div>
           </div>
