@@ -61,7 +61,7 @@ export const UploadTour = ({
         </div>
         <div className={s.portada}>
           <label>Foto Portada</label>
-          <div className={portadaImg ? s.portada_hover : ''}>
+          <div className={portadaImg ? s.portada_hover : ""}>
             <input
               style={{ display: "none" }}
               type="file"
@@ -104,8 +104,13 @@ export const UploadTour = ({
                 </button>
               </div>
             ))}
+
+          {filesLoading && (
+            <div className={s.loading}>
+              <p>Loading...</p>
+            </div>
+          )}
         </div>
-        {filesLoading && <div>Loading...</div>}
       </div>
       <div className={s.create_btn_container}>
         <button disabled={!files.length > 0} onClick={handleClickCreate}>

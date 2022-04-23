@@ -26,6 +26,10 @@ $hoverPrimary: #907ad6;
   box-sizing: border-box;
 }
 
+*::before, *::after{
+  box-sizing: border-box;
+}
+
 body {
   margin: 2rem 5rem;
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Pannellum } from "pannellum-react";
+import { XIcon } from "@heroicons/react/solid";
 import s from "./LinkPhotos.module.scss";
 
 export const LinkPhotos = ({
@@ -77,6 +78,10 @@ export const LinkPhotos = ({
     setCurrentImg(index);
   };
 
+  const handleCloseChoose = () => {
+    setSelectImg(false)
+  }
+
   const handleDone = () => {
     setCreate(false);
     setViewTour(true);
@@ -139,23 +144,17 @@ export const LinkPhotos = ({
                     </option>
                   ))}
               </select>
-              <div>
-                {pitch && <p>Pitch: {pitch}</p>}
-                {yaw && <p>Yaw: {yaw}</p>}
-              </div>
-            </div>
-          </div>
-          <div className={s.link_photo}>
-            <div></div>
-            <div>
-              <div>
-                <button onClick={handleSelectImg}>Crear Enlace</button>
-              </div>
-              <div>
+              <div className={s.link_photo}>
+                <div>
+                  <button onClick={handleSelectImg}>Crear Enlace</button>
+                </div>
                 {selectImg && files.length > 0 && (
-                  <>
-                    <p>Elige una foto</p>
-                    <div>
+                  <div className={s.choose_photo}>
+                    <div className={s.choose_and_icon}>
+                      <p>Elige una foto</p>
+                      <XIcon className={s.x_icon} onClick={handleCloseChoose}/>
+                    </div>
+                    <div className={s.photos_list}>
                       {files
                         .filter((file) => file.name !== files[currentImg].name)
                         .map((file) => (
@@ -163,13 +162,21 @@ export const LinkPhotos = ({
                             key={file.name}
                             onClick={() => handleAddSpot(file.name)}
                           >
-                            {file.name}
+                            {file.name.split(".")[0]}
                           </p>
                         ))}
                     </div>
-                  </>
+                  </div>
                 )}
               </div>
+            </div>
+          </div>
+          <div>
+            <div></div>
+
+            <div>
+              {pitch && <p>Pitch: {pitch}</p>}
+              {yaw && <p>Yaw: {yaw}</p>}
             </div>
           </div>
           <div className={s.btn_container_done}>
