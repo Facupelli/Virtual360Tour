@@ -1,4 +1,4 @@
-import { keys } from "./apiKeys";
+// import { keys } from "./apiKeys";
 
 export const cloudinaryFunc = async (file) => {
     const reader = new FileReader();
@@ -7,7 +7,7 @@ export const cloudinaryFunc = async (file) => {
     const formData = new FormData();
     formData.append("file", file);
     // replace this with your upload preset name
-    formData.append("upload_preset", keys.preset);
+    formData.append("upload_preset", process.env.REACT_APP_PRESET );
     const options = {
       method: "POST",
       body: formData,
@@ -15,7 +15,7 @@ export const cloudinaryFunc = async (file) => {
 
     try {
       const res = await fetch(
-        `https://api.cloudinary.com/v1_1/${keys.cloud}/image/upload`,
+        `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUD }/image/upload`,
         options
       );
       const res_1 = await res.json();
