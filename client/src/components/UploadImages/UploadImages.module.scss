@@ -185,6 +185,16 @@
   display: flex;
   justify-content: end;
 
+  .btn_disabled{
+    background-color: gray;
+    color: white;
+    cursor: auto;
+
+    &:hover{
+      background-color: gray;
+    }
+  }
+
   button {
     margin: 1rem 0 0 0;
 

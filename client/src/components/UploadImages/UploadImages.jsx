@@ -113,7 +113,7 @@ export const UploadTour = ({
         </div>
       </div>
       <div className={s.create_btn_container}>
-        <button disabled={!files.length > 0} onClick={handleClickCreate}>
+        <button disabled={!files.length > 0} onClick={handleClickCreate} className={!files.length > 0 ? s.btn_disabled : ''}>
           Crear Tour
         </button>
       </div>

@@ -1,0 +1,10 @@
+@import '../../../App.scss';
+
+
+.btn_container{
+    margin: 1rem 0;
+
+    button{
+        @include mainBtn
+    }
+}

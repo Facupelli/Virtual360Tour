@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { LinkPhotos } from "../LinkPhotos/LinkPhotos";
 import { UploadTour } from "../UploadImages/UploadImages";
-import PanellumReact from "./PanellumReact";
+import PanellumReact from "./PanellumReact/PanellumReact";
 
 export const Home = ({ files, setFiles }) => {
   const [viewTour, setViewTour] = useState(false);
@@ -17,7 +17,7 @@ export const Home = ({ files, setFiles }) => {
 
   return (
     <div>
-      <h1>VIRTUAL 360 TOUR</h1>
+      <h2>VIRTUAL 360 TOUR</h2>
       {viewTour && !create && (
         <PanellumReact
           scene={scene}
