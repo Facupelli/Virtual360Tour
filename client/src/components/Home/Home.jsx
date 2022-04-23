@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { CreateTour } from "../CreateTour/CreateTour";
+import { LinkPhotos } from "../LinkPhotos/LinkPhotos";
 import { UploadTour } from "../UploadImages/UploadImages";
 import PanellumReact from "./PanellumReact";
 
@@ -39,7 +39,7 @@ export const Home = ({ files, setFiles }) => {
         />
       )}
       {create && (
-        <CreateTour
+        <LinkPhotos
           files={files}
           create={create}
           setCreate={setCreate}

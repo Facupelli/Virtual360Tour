@@ -1,0 +1,32 @@
+@import "../../App.scss";
+
+.title {
+  @include title;
+}
+
+.list_and_photo {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  gap: 2rem;
+
+  margin: 1rem 0;
+}
+
+.link_photo {
+  button {
+    @include mainBtn;
+  }
+}
+
+.btn_container_done {
+  display: flex;
+  justify-content: end;
+
+  margin: 2rem 0 0 0;
+
+  button {
+    @include mainBtn;
+    font-size: 1.1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+}

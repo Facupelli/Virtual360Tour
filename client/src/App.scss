@@ -1,12 +1,31 @@
-$primaryColor: #4F518C;
-$hoverPrimary: #907AD6;
+$primaryColor: #4f518c;
+$hoverPrimary: #907ad6;
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+@mixin title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 1rem 0 0 0;
 }
 
-body{
-    margin:2rem 4rem;
+@mixin mainBtn() {
+  background-color: $primaryColor;
+  padding: 0.8em;
+  border: none;
+  color: white;
+  border-radius: 0.2rem;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $hoverPrimary;
+  }
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 2rem 4rem;
 }
