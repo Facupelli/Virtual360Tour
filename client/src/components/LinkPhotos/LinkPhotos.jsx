@@ -127,7 +127,7 @@ export const LinkPhotos = ({
             </div>
 
             <div className={s.select_image}>
-              <select onChange={handleOnChange}>
+              <select onChange={handleOnChange} value={scene[currentImg].name}>
                 {files.length > 0 &&
                   files.map((file) => (
                     <option
@@ -156,14 +156,16 @@ export const LinkPhotos = ({
                   <>
                     <p>Elige una foto</p>
                     <div>
-                      {files.map((file) => (
-                        <p
-                          key={file.name}
-                          onClick={() => handleAddSpot(file.name)}
-                        >
-                          {file.name}
-                        </p>
-                      ))}
+                      {files
+                        .filter((file) => file.name !== files[currentImg].name)
+                        .map((file) => (
+                          <p
+                            key={file.name}
+                            onClick={() => handleAddSpot(file.name)}
+                          >
+                            {file.name}
+                          </p>
+                        ))}
                     </div>
                   </>
                 )}
