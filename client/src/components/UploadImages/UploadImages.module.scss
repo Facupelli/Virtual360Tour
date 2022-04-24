@@ -3,12 +3,12 @@
 .title {
   font-size: 1.3rem;
   font-weight: bold;
-  margin: 1rem 0 0 0;
+  margin: 1rem 0 0rem 0;
 }
 
 .form {
   display: flex;
-  margin: 1em 0;
+  margin: .5rem 0;
 
   div {
     input {
@@ -89,7 +89,7 @@
 }
 
 .images_container {
-  margin-top: 2rem;
+  margin-top: 1rem;
 
   .div_title {
     display: flex;
@@ -111,7 +111,7 @@
       align-items: center;
       gap: 0.5em;
 
-      background-color: App.$primaryColor;
+      background-color: App.$secondaryColor;
       padding: 0.8em;
       border: none;
       color: white;
@@ -120,7 +120,7 @@
       cursor: pointer;
 
       &:hover {
-        background-color: App.$hoverPrimary;
+        background-color: App.$hoverSecondary;
       }
 
       .plus_icon {

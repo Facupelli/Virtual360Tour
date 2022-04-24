@@ -2,23 +2,25 @@ import React, { useState } from "react";
 import { LinkPhotos } from "../LinkPhotos/LinkPhotos";
 import { UploadTour } from "../UploadImages/UploadImages";
 import PanellumReact from "./PanellumReact/PanellumReact";
-import s from './Home.module.scss'
+import s from "./Home.module.scss";
 
 export const Home = ({ files, setFiles }) => {
   const [viewTour, setViewTour] = useState(false);
   const [sceneName, setSceneName] = useState("PRUEBA1");
   const [scene, setScene] = useState([]);
-  const [portadaImg, setPortadaImg] = useState()
+  const [portadaImg, setPortadaImg] = useState();
 
   console.log("SCENE", scene);
   console.log("PORTADA", portadaImg);
-
 
   const [create, setCreate] = useState(false);
 
   return (
     <div>
-      <h2 className={s.title}>VIRTUAL 360 TOUR</h2>
+      <div className={s.nav}>
+        <p>VIRTUAL 360 TOUR</p>
+      </div>
+      <div className={s.body}>
       {viewTour && !create && (
         <PanellumReact
           scene={scene}
@@ -50,6 +52,7 @@ export const Home = ({ files, setFiles }) => {
           setViewTour={setViewTour}
         />
       )}
+      </div>
     </div>
   );
 };

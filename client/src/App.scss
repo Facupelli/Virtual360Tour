@@ -1,5 +1,7 @@
 $primaryColor: #4f518c;
 $hoverPrimary: #907ad6;
+$secondaryColor: #FC6DAB;
+$hoverSecondary: #ff94c2;
 
 @mixin title {
   font-size: 1.3rem;
@@ -30,6 +32,3 @@ $hoverPrimary: #907ad6;
   box-sizing: border-box;
 }
 
-body {
-  margin: 1rem 5rem;
-}

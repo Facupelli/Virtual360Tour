@@ -21,13 +21,13 @@
     width: 50%;
     padding: 0.5rem 1rem 0.5rem 0rem;
     border: none;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid $secondaryColor;
     margin-bottom: 1rem;
     cursor: pointer;
 
     &:focus {
       outline: none;
-      border-bottom: 2px solid gray;
+      border-bottom: 2px solid $secondaryColor;
     }
   }
 }
